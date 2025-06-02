@@ -11,7 +11,7 @@ body {
 .container {
     background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white for better blend with gradient */
     padding: 30px;
-    border-radius: 8px;
+    border-radius: 15px; /* Current border-radius */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     width: 360px;
 }
@@ -85,3 +85,63 @@ button[type="submit"]:hover {
 .forgot-password a:hover {
     text-decoration: underline;
 }
+
+.social-login-divider {
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Vertically center items */
+    text-align: center;
+    margin: 20px 0;
+    color: #555;
+}
+
+.social-login-divider::before,
+.social-login-divider::after {
+    content: '';
+    flex-grow: 1; /* Allow lines to take up available space */
+    height: 1px;
+    background-color: #ccc;
+    margin: 0 10px; /* Add some space between lines and text */
+}
+
+.social-login-divider span {
+    /* No specific styling needed for the span with this flex approach,
+       but you can add padding if you want more space around the text.
+       The background of the span is not needed to hide the line anymore. */
+    padding: 0 5px; /* Optional: if you want more visual separation */
+    color: #555; /* Ensure text color is set */
+    font-size: 0.9em;
+}
+
+.social-login-buttons {
+    display: flex;
+    flex-direction: row; /* Changed to row for horizontal layout */
+    justify-content: center; /* Center the buttons horizontally */
+    gap: 15px; /* Increased gap slightly for better visual separation */
+    margin-top: 20px; /* Adjusted margin slightly */
+}
+
+.social-btn {
+    width: 44px; /* Fixed width */
+    height: 44px; /* Fixed height */
+    border: none;
+    border-radius: 50%; /* Makes it circular */
+    color: white;
+    font-size: 16px; /* Adjusted font size */
+    font-weight: bold;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0; /* Remove padding as width/height are fixed */
+    line-height: 44px; /* Vertically center text if display:flex is not enough */
+}
+
+.social-btn:hover {
+    opacity: 0.9;
+}
+
+.social-btn.facebook { background-color: #3b5998; }
+.social-btn.google { background-color: #db4437; }
+.social-btn.linkedin { background-color: #0077b5; }
+.social-btn.twitter { background-color: #1da1f2; } /* Or black for X: #000000 */
