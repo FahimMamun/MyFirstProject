@@ -4,29 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login / Register</title>
-    <!-- Include Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- We might keep style.css for body background or very specific things Tailwind doesn't easily cover,
-         or remove it if Tailwind handles everything. For now, let's assume Tailwind handles most of it.
-         If style.css has body background, we might want to move that to Tailwind classes on <body> or a wrapper.
-    -->
     <link rel="stylesheet" href="style.css">
-    <script>
-        // Optional: Tailwind CSS configuration (if needed for customization)
-        // tailwind.config = {
-        //   theme: {
-        //     extend: {
-        //       colors: {
-        //         clifford: '#da373d',
-        //       }
-        //     }
-        //   }
-        // }
-    </script>
 </head>
-<body class="bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center min-h-screen">
+<body class="bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center min-h-screen p-4">
     <div class="bg-white p-8 rounded-lg shadow-xl w-full max-w-md">
-        <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Welcome!</h2>
+        <h2 id="formTitle" class="text-3xl font-bold text-center text-gray-800 mb-8">Login</h2> <!-- Initial Title -->
 
         <form id="authForm">
             <div class="mb-6">
@@ -43,33 +26,32 @@
                        placeholder="••••••••">
             </div>
 
-            <!-- Message area for success/error feedback -->
             <div id="messageArea" class="mb-4 text-sm"></div>
 
-            <div class="flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0">
-                <button type="submit" id="loginButton"
+            <div>
+                <button type="submit" id="submitButton"
                         class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg focus:outline-none focus:shadow-outline transition duration-150">
-                    Login
-                </button>
-                <button type="submit" id="registerButton"
-                        class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg focus:outline-none focus:shadow-outline transition duration-150">
-                    Register
+                    Login <!-- Initial Button Text -->
                 </button>
             </div>
         </form>
 
-        <div class="mt-8 text-center">
-            <a href="#" id="forgotPasswordLink" class="text-sm text-blue-600 hover:underline">Forgot Password?</a>
+        <div class="mt-6 text-center text-sm">
+            <a href="#" id="toggleToRegisterLink" class="text-blue-600 hover:text-blue-800 hover:underline">Don’t have an account? Register</a>
+            <a href="#" id="toggleToLoginLink" class="text-blue-600 hover:text-blue-800 hover:underline hidden">Already have an account? Login</a>
         </div>
 
-        <!-- Social Login Buttons (Styled with Tailwind) -->
+        <div class="mt-6 text-center"> <!-- Kept Forgot Password separate for clarity -->
+            <a href="#" id="forgotPasswordLink" class="text-sm text-gray-600 hover:text-gray-800 hover:underline">Forgot Password?</a>
+        </div>
+
+        <!-- Social Login Buttons (no changes here from previous Tailwind version) -->
         <div class="mt-8">
             <div class="relative flex py-5 items-center">
                 <div class="flex-grow border-t border-gray-300"></div>
                 <span class="flex-shrink mx-4 text-gray-400 text-sm">OR</span>
                 <div class="flex-grow border-t border-gray-300"></div>
             </div>
-
             <div class="flex justify-center space-x-3">
                 <button aria-label="Login with Facebook" class="p-2 border border-gray-300 rounded-full hover:bg-gray-100 transition duration-150">
                     <svg class="w-5 h-5 text-blue-700" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" /></svg>
@@ -86,7 +68,6 @@
             </div>
         </div>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>
